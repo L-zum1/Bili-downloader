@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bili-Downloader - 哔哩哔哩视频下载器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <div class="container">
+            <div class="header-left">
+                <div class="logo">
+                    <i class="fa fa-play-circle"></i>
+                    <span class="logo-text">Bili-Downloader</span>
+                </div>
+
+            </div>
+            <div class="header-right">
+                <div class="user"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主内容区域 -->
+    <main class="main">
+        <div class="container">
+            <!-- 下载表单区域 -->
+            <section class="download-section">
+                <div class="download-card">
+                    <h1 class="section-title">哔哩哔哩视频下载器</h1>
+                    <p class="section-subtitle">支持普通视频和番剧下载</p>
+                    
+                    <div class="download-form">
+                        <div class="form-group">
+                            <label for="video-url" class="form-label">
+                                视频链接
+                            </label>
+                            <input type="text" id="video-url" class="form-input" 
+                                   placeholder="请输入B站视频或番剧URL" 
+                                   value="https://www.bilibili.com/video/BV1xx411c7mD">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                下载选项
+                            </label>
+                            <div class="options">
+                                <label class="option-item">
+                                    <input type="checkbox" class="option-checkbox" checked>
+                                    <span class="option-text">下载视频</span>
+                                </label>
+                                <label class="option-item">
+                                    <input type="checkbox" class="option-checkbox" checked>
+                                    <span class="option-text">下载音频</span>
+                                </label>
+                                <label class="option-item">
+                                    <input type="checkbox" class="option-checkbox" checked>
+                                    <span class="option-text">下载封面</span>
+                                </label>
+                                <label class="option-item">
+                                    <input type="checkbox" class="option-checkbox" checked>
+                                    <span class="option-text">提取元数据</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button id="download-btn" class="download-btn">开始下载</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 视频信息展示区域 -->
+            <section class="video-info-section" id="video-info-section" style="display: none;">
+                <div class="video-card">
+                    <div class="video-header">
+                        <h2 class="video-title" id="video-title">视频标题</h2>
+                    </div>
+                    
+                    <div class="video-content">
+                        <div class="video-cover">
+                            <img id="video-cover" src="" alt="视频封面">
+                        </div>
+                        
+                        <div class="video-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">描述：</span>
+                                <span class="meta-value" id="video-description">视频描述</span>
+                            </div>
+                            
+                            <div class="meta-item">
+                                <span class="meta-label">标签：</span>
+                                <span class="meta-value" id="video-tags">视频标签</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 下载进度区域 -->
+            <section class="progress-section" id="progress-section" style="display: none;">
+                <div class="progress-card">
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-title">封面下载</span>
+                            <span class="progress-status" id="cover-status">准备中</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="cover-progress" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-title">视频下载</span>
+                            <span class="progress-status" id="video-status">准备中</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="video-progress" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-title">音频下载</span>
+                            <span class="progress-status" id="audio-status">准备中</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="audio-progress" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-title">视频合并</span>
+                            <span class="progress-status" id="merge-status">准备中</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="merge-progress" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 下载完成区域 -->
+            <section class="result-section" id="result-section" style="display: none;">
+                <div class="result-card">
+                    <div class="result-header">
+                        <h2 class="result-title">下载完成！</h2>
+                    </div>
+                    
+                    <div class="result-content">
+                        <p class="result-message" id="result-message">视频已成功下载并保存</p>
+                        
+                        <div class="result-actions">
+                            <button class="result-btn" id="open-folder-btn">打开文件夹</button>
+                            <button class="result-btn" id="download-again-btn">再次下载</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="logo">
+                        <span class="logo-text">Bili-Downloader</span>
+                    </div>
+                    <p class="copyright">© 2026 Bili-Downloader. All rights reserved.</p>
+                </div>
+                <div class="footer-right">
+                    <div class="social-links"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

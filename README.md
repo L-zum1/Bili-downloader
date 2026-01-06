@@ -1,6 +1,6 @@
 # Bili-downloader
 
-一个用于下载B站视频（包括普通视频和番剧）的Python工具。
+一个用于下载B站视频（包括普通视频和番剧）的Python工具，提供命令行和Web界面两种使用方式。
 
 ## 功能特点
 
@@ -10,6 +10,10 @@
 - ✅ 分离下载视频和音频并自动合并
 - ✅ 支持预览版番剧下载
 - ✅ 下载内容自动分类整理
+- ✅ 提供Web界面和命令行两种使用方式
+- ✅ 实时显示下载进度
+- ✅ 支持选择下载选项（视频、音频、封面、元数据）
+- ✅ 下载完成后自动打开文件夹
 
 ## 安装说明
 
@@ -35,6 +39,24 @@ pip install -r requirements.txt
 - **Linux**: `sudo apt-get install ffmpeg`
 
 ## 使用方法
+
+### 方式一：Web界面
+
+```bash
+python app.py
+```
+
+然后在浏览器中打开 `http://localhost:5001`，即可使用Web界面下载视频。
+
+#### Web界面功能
+
+1. 在输入框中粘贴B站视频或番剧URL
+2. 选择下载选项（默认全部选中）
+3. 点击"开始下载"按钮
+4. 查看视频信息和下载进度
+5. 下载完成后可选择打开文件夹或再次下载
+
+### 方式二：命令行
 
 ```bash
 python main.py
@@ -63,16 +85,33 @@ downloads/
 2. 对于需要登录或付费的内容，可能无法下载
 3. 番剧预览版可能没有单独的音频流，视频文件本身可能已包含音频
 4. 下载速度取决于网络环境和B站的限制
+5. Web界面运行在本地服务器（localhost:5001），仅能在本地访问
 
 ## 示例
 
 ### 下载普通视频
+
+**Web界面**：
+1. 启动服务器：`python app.py`
+2. 打开浏览器访问 `http://localhost:5001`
+3. 粘贴URL：`https://www.bilibili.com/video/BV1xx411c7mD`
+4. 点击"开始下载"
+
+**命令行**：
 ```bash
 python main.py
 请输入视频URL: https://www.bilibili.com/video/BV1xx411c7mD
 ```
 
 ### 下载番剧
+
+**Web界面**：
+1. 启动服务器：`python app.py`
+2. 打开浏览器访问 `http://localhost:5001`
+3. 粘贴URL：`https://www.bilibili.com/bangumi/play/ep290864022`
+4. 点击"开始下载"
+
+**命令行**：
 ```bash
 python main.py
 请输入视频URL: https://www.bilibili.com/bangumi/play/ep290864022
@@ -84,6 +123,7 @@ python main.py
 - beautifulsoup4
 - requests
 - moviepy
+- flask
 - ffmpeg
 
 ## 许可证

@@ -1,4 +1,29 @@
-crawl4ai
+# 核心依赖
 beautifulsoup4
 requests
+
+# Web框架
+flask
+
+# 视频处理
 moviepy
+decorator
+imageio
+imageio_ffmpeg
+proglog
+
+# 数据处理
+numpy
+pillow
+
+# 网络爬虫
+lxml
+aiohttp
+fake-useragent
+
+# 配置管理
+python-dotenv
+
+# API和安全
+pydantic
+pyOpenSSL
