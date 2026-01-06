@@ -1,0 +1,45 @@
+# 环境
+.venv/
+.env
+
+# 下载内容
+downloads/
+
+# 临时文件
+*.m4s
+*.tmp
+*.swp
+*.swo
+
+# 日志文件
+*.log
+
+# Python缓存
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 操作系统
+.DS_Store
+Thumbs.db
+
+# 测试
+.pytest_cache/
+.coverage
+coverage.xml
+
+# 构建
+build/
+dist/
+*.egg-info/
+
+# 其他
+*.bak
+*.old
+*.temp
